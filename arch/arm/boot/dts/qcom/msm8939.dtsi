@@ -31,6 +31,8 @@
 	};
 
         firmware: firmware {
+
+        firmware: firmware {
                  android {
                          compatible = "android,firmware";
                          fstab {
@@ -44,9 +46,19 @@
                                          status = "ok";
                                  };
                          };
+                         fstab {
+                                 compatible = "android,fstab";
+                                 vendor {
+                                         compatible = "android,vendor";
+                                         dev = "/dev/block/platform/soc.0/7824900.sdhci/by-name/cust";
+                                         type = "ext4";
+                                         mnt_flags = "ro,barrier=1,discard";
+                                         fsmgr_flags = "wait";
+                                         status = "ok";
+                                 };
+                         };
                  };
         };
-};
 
 &soc {
 	timer {
